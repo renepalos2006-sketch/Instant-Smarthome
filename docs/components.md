@@ -1,6 +1,6 @@
 # Components
 
-## Central Unit
+## Central Unit/Lamp
 
 - ESP32-S3
 - BME280
@@ -10,8 +10,10 @@
 
 - Display
 - Rotary Encoder
+- Buttons
 
 ## External Components
 
 - Window Contact
 - Thermostat
+- Wireless Lightswitch

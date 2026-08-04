@@ -8,7 +8,7 @@
 - VEML7700
 - SHT40
 - EKMC/STHS34
-- SGP40/SCD40
+- SGP40/SCD40 
 
 ## Control Unit
 

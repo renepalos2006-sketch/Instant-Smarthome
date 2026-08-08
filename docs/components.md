@@ -18,6 +18,6 @@
 
 ## External Components
 
-- Window Contact
-- Thermostat
+- Shelly BLU Door/Window (Window Contact) 5x
 - Wireless Lightswitch
+- Shelly BLU TRV (Heizkörperthermostat)

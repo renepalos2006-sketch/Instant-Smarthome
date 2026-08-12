@@ -4,8 +4,8 @@
 
 - ESP32-S3
 - BH1750 (Lichtsensor)
-- EKMC/STHS34 (Bewegungssensor/Anwesenheitssensor mit Wärmequelle)
-- SGP40/SCD40
+- EKMB (Bewegungssensor)
+- SCD40 (CO2 Sensor)
 
 ## Control Unit
 

@@ -10,6 +10,7 @@
 ## Control Unit
 
 - Display
+- ESP32-S3
 - Rotary Encoder
 - Buttons
 - BME280 (Temperatur, Luftdruck, Luftfeuchtigkeit)

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Smarthome — Einfach. Smart. Für alle.</title>
+<link rel="canonical" href="https://instant-smarthome.at/">
+<meta name="description" content="Instant Smarthome ist ein Plug-and-Play-Smarthome-System – einfach installiert, intuitiv bedient, für alle geeignet. Diplomarbeitsprojekt der HTL Rennweg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy: #142B3F;
+    --navy-soft: #1E3E54;
+    --teal: #1B6F5E;
+    --teal-dark: #13574A;
+    --teal-tint: #E4F0EC;
+    --bg: #FFFFFF;
+    --bg-alt: #F2F6F6;
+    --ink: #142B3F;
+    --ink-soft: #55656C;
+    --line: #E1E7E6;
+    --radius: 4px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,.wordmark{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.005em;
+    margin:0;
+    color: var(--navy);
+  }
+
+  a{ color: var(--teal); }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .prose{ max-width: 620px; }
+
+  .eyebrow{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* icon symbols */
+  .icon{ width: 26px; height: 26px; stroke: currentColor; fill:none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; display:block; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background: var(--navy);
+    color: #C9D6DA;
+    font-size: 13px;
+    padding: 7px 0;
+  }
+  .topbar .wrap{ display:flex; justify-content: flex-end; }
+  .topbar a{ color: #C9D6DA; text-decoration:none; letter-spacing: 0.03em; }
+
+  /* ---------- Nav ---------- */
+  header{ padding: 22px 0; border-bottom: 1px solid var(--line); }
+  header .wrap{ display:flex; align-items:center; justify-content: space-between; }
+  .wordmark{ font-size: 19px; line-height:1; }
+  .wordmark .accent{ color: var(--teal); }
+  nav{ display:flex; }
+  nav a{ color: var(--ink-soft); text-decoration:none; font-size: 14.5px; font-weight:500; margin-left: 30px; }
+  nav a:hover{ color: var(--navy); }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding: 60px 0 84px; }
+  .hero .wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items:center; }
+  .hero h1{ font-size: 46px; line-height: 1.05; text-transform: uppercase; margin: 6px 0 14px; }
+  .tagline{
+    font-family:'Montserrat', sans-serif; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--teal); font-size: 16px; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero p.lead{ color: var(--ink-soft); font-size: 17px; max-width: 460px; margin-bottom: 28px; }
+  .cta-row{ display:flex; gap: 14px; flex-wrap: wrap; }
+  .btn{ display:inline-block; padding: 13px 24px; border-radius: var(--radius); text-decoration:none; font-size: 14.5px; font-weight: 600; border: 1px solid transparent; font-family:'Montserrat',sans-serif; letter-spacing:0.02em; }
+  .btn-primary{ background: var(--teal); color: #fff; }
+  .btn-primary:hover{ background: var(--teal-dark); }
+  .btn-ghost{ color: var(--navy); border-color: var(--line); }
+  .btn-ghost:hover{ border-color: var(--navy); }
+
+  /* hero device art */
+  .hero-art{ position: relative; }
+  .device-svg{ width: 100%; height: auto; }
+  .fit-card{
+    position:absolute; right: -12px; bottom: -18px;
+    background: var(--navy); color:#fff; border-radius: var(--radius);
+    padding: 18px 22px; width: 230px; box-shadow: 0 14px 30px rgba(20,43,63,0.22);
+  }
+  .fit-card .fit-title{ font-family:'Montserrat',sans-serif; font-weight:700; font-size: 12px; letter-spacing:0.06em; text-transform:uppercase; color:#8FC9BC; margin-bottom: 10px; }
+  .fit-card ul{ list-style:none; margin:0; padding:0; }
+  .fit-card li{ display:flex; align-items:center; gap:9px; font-size: 13.5px; padding: 4px 0; }
+  .fit-card .icon{ width:15px; height:15px; stroke: #7FD6BE; flex-shrink:0; }
+
+  /* ---------- Sections ---------- */
+  section{ padding: 78px 0; }
+  .alt{ background: var(--bg-alt); }
+  .section-head{ margin-bottom: 40px; }
+  .section-head .eyebrow{ margin-bottom: 8px; }
+  .section-head h2{ font-size: 27px; text-transform: uppercase; }
+  .section-head p{ color: var(--ink-soft); margin-top: 12px; max-width: 560px; }
+
+  /* Was ist / feature grid */
+  .feature-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 34px 44px; }
+  .feature{ display:flex; gap: 18px; }
+  .feature .icon-badge{
+    width: 52px; height: 52px; border-radius: 50%; background: var(--teal-tint);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .feature .icon-badge .icon{ stroke: var(--teal); width:24px; height:24px; }
+  .feature h3{ font-size: 16.5px; text-transform: none; margin-bottom: 6px; }
+  .feature p{ color: var(--ink-soft); font-size: 15px; margin:0; }
+
+  /* how it works hub */
+  .hub-wrap{ display:flex; justify-content:center; }
+  .hub-svg{ width: 100%; max-width: 640px; height:auto; }
+  .hub-line{ stroke: var(--teal); stroke-width: 1.4; stroke-dasharray: 3 5; fill:none; opacity:0; animation: fadein .5s ease forwards; }
+  .hub-core-ring{ fill: #EAF3F1; stroke: var(--teal); stroke-width: 1.6; }
+  .hub-core-inner{ fill: var(--navy); }
+  .hub-node-circle{ fill:#fff; stroke: var(--line); stroke-width: 1.4; }
+  .hub-node .icon{ stroke: var(--navy); }
+  .hub-label{ font-family:'Inter',sans-serif; font-size: 11px; fill: var(--ink-soft); font-weight:500; }
+  .hub-center-label{ font-family:'Montserrat',sans-serif; font-size: 10.5px; font-weight:700; fill:#fff; text-transform: uppercase; }
+  @keyframes fadein{ to{ opacity:1; } }
+  @media (prefers-reduced-motion: reduce){ .hub-line{ animation:none; opacity:1; } }
+  .hub-caption{ text-align:center; color: var(--ink-soft); font-size: 14.5px; margin-top: 18px; }
+
+  /* Unsere Lösung */
+  .solution-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items:start; }
+  .solution-wrap p{ color: var(--ink-soft); }
+  .chip-row{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px 20px; margin-top: 8px; }
+  .chip{ text-align:center; padding: 22px 12px; border: 1px solid var(--line); border-radius: var(--radius); }
+  .chip .icon{ margin: 0 auto 10px; stroke: var(--teal); }
+  .chip .chip-label{ font-family:'Montserrat',sans-serif; font-weight:700; font-size: 12px; letter-spacing:0.03em; text-transform: uppercase; color: var(--navy); }
+
+  /* Ziele checklist */
+  .goal-list{ list-style:none; margin:0; padding:0; max-width: 640px; }
+  .goal-list li{ display:flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .goal-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .goal-list .icon{ stroke: var(--teal); flex-shrink:0; margin-top: 2px; }
+  .goal-list p{ margin:0; color: var(--ink); font-size: 16px; }
+
+  /* Team */
+  .team-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .avatar{
+    width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size: 15px; margin-bottom: 18px;
+  }
+  .team-card h3{ font-size: 17px; text-transform:none; }
+  .team-card .role{ color: var(--teal); font-family:'Montserrat',sans-serif; font-weight:700; font-size: 12.5px; letter-spacing:0.03em; text-transform: uppercase; margin: 5px 0 12px; }
+  .team-card .focus{ color: var(--ink-soft); font-size: 15px; }
+
+  /* Footer band */
+  .footer-band{ background: var(--navy); color: #C9D6DA; padding: 56px 0 0; }
+  .footer-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 44px; padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .footer-col .icon-badge-sm{ width:40px; height:40px; border-radius:50%; background: rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; margin-bottom: 16px; }
+  .footer-col .icon-badge-sm .icon{ stroke:#7FD6BE; width:20px; height:20px; }
+  .footer-col h3{ color:#fff; font-size: 15px; text-transform: uppercase; letter-spacing:0.03em; margin-bottom: 10px; }
+  .footer-col p, .footer-col a{ color: #AEC0C6; font-size: 14.5px; text-decoration:none; margin:0 0 4px; }
+  .footer-col a:hover{ color:#fff; }
+
+  .feature-strip{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 34px 0; }
+  .feature-strip div{ display:flex; align-items:center; gap: 12px; }
+  .feature-strip .icon{ stroke:#7FD6BE; width:22px; height:22px; flex-shrink:0; }
+  .feature-strip span{ font-family:'Montserrat',sans-serif; font-weight:700; font-size: 12.5px; letter-spacing: 0.02em; text-transform: uppercase; color: #E4ECEE; }
+
+  .copyright{ text-align:center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; color: #7E93 9B; color:#8CA0A6; }
+
+  @media (max-width: 780px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero h1{ font-size: 32px; }
+    .fit-card{ position:static; margin-top: 20px; width:auto; }
+    .feature-grid{ grid-template-columns: 1fr; }
+    .solution-wrap{ grid-template-columns: 1fr; }
+    .chip-row{ grid-template-columns: repeat(2,1fr); }
+    .team-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .feature-strip{ grid-template-columns: 1fr 1fr; }
+    nav a{ margin-left: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M7 8h10v3a5 5 0 0 1-10 0V8Z"/><path d="M12 16v3"/><path d="M9 21h6"/></symbol>
+  <symbol id="i-tap" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l2.5 2.5"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.9 7.3 10.5 16M16.1 7.3 13.5 16M8.2 6h7.6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.6 3 7.7 7 9 4-1.3 7-4.4 7-9V6l-7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.2"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M4 9.5a12 12 0 0 1 16 0"/><path d="M7.2 13a8 8 0 0 1 9.6 0"/><path d="M10.4 16.4a4 4 0 0 1 3.2 0"/><circle cx="12" cy="19.2" r="1"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c8 1 14-4 14-14C10 5 5 10 5 19Z"/><path d="M5 19c2-4 5-7 9-9"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-thumb" viewBox="0 0 24 24"><path d="M7 11v9H4v-9h3Z"/><path d="M7 11l4-7c1.4 0 2.3 1.2 2 2.5L12 10h5.2c1.2 0 2 1.1 1.6 2.2l-2 5.6c-.3.8-1 1.3-1.9 1.3H7"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3Z"/></symbol>
+  <symbol id="i-motion" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M8 21l2-7-2.5-2 1-4 3.5 1.5L15 8l3 2-1 2-3-1.5-1.5 3L15 21"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M12 4v16M4 12h16"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1"/><circle cx="14.5" cy="12" r="0.8" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-phone-off" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M4 4l16 16"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M12 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4.5 4.5L19 8"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.5" cy="9" r="2.3"/><path d="M15 20c.2-2.5 1.8-4.4 4-5"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4-10-4Z"/><path d="M6 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M2 12l4-3 3 2 4-3 3 2 4-3 2 2-3 3-2-1-3 3-3-2-3 2-4-3Z"/></symbol>
+</defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap"><a href="mailto:2245@htl.rennweg.at">instant-smarthome.at</a></div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="wordmark">INSTANT<span class="accent">SMARTHOME</span></div>
+    <nav>
+      <a href="#was-ist">Was ist das?</a>
+      <a href="#funktion">Funktion</a>
+      <a href="#ziele">Ziele</a>
+      <a href="#team">Team</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Diplomarbeitsprojekt</div>
+      <h1>Instant<br>Smarthome</h1>
+      <div class="tagline">Einfach. Smart. Für alle.</div>
+      <p class="lead">Ein innovatives Smart-Home-System, das sich durch einfache Installation und intuitive Bedienung auszeichnet. Ohne technisches Vorwissen eingerichtet – und spürbar alltagstauglich.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#kontakt">Kooperation anfragen</a>
+        <a class="btn btn-ghost" href="#funktion">So funktioniert's</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg class="device-svg" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="lampGlow" cx="50%" cy="42%" r="60%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="55%" stop-color="#F1F4F5"/>
+            <stop offset="100%" stop-color="#D9E0E2"/>
+          </radialGradient>
+          <radialGradient id="ledRing" cx="50%" cy="50%" r="50%">
+            <stop offset="78%" stop-color="#FFFFFF" stop-opacity="0"/>
+            <stop offset="88%" stop-color="#FFD98A" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#FFD98A" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="0" y="0" width="460" height="340" rx="6" fill="#EEF2F2"/>
+        <circle cx="230" cy="160" r="132" fill="url(#lampGlow)"/>
+        <circle cx="230" cy="160" r="132" fill="url(#ledRing)"/>
+        <circle cx="230" cy="160" r="132" fill="none" stroke="#C7D0D1" stroke-width="1.5"/>
+        <circle cx="230" cy="160" r="94" fill="none" stroke="#D3DADA" stroke-width="1"/>
+        <circle cx="215" cy="182" r="4.5" fill="#B8C1C2"/>
+        <circle cx="247" cy="182" r="4.5" fill="#B8C1C2"/>
+        <circle cx="230" cy="196" r="3" fill="#8FA0A2"/>
+      </svg>
+      <div class="fit-card">
+        <div class="fit-title">Besonders geeignet für</div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg> Ältere Menschen</li>
+          <li><svg class="icon"><use href="#i-check"/></svg> Personen mit wenig Techniker­fahrung</li>
+          <li><svg class="icon"><use href="#i-check"/></svg> Betreutes Wohnen & Pflegeeinrichtungen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="was-ist" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Überblick</div>
+      <h2>Was ist Instant Smarthome?</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon-badge"><svg class="icon"><use href="#i-plug"/></svg></div>
+        <div>
+          <h3>Plug & Play</h3>
+          <p>Einfache Installation ohne aufwendige Anleitungen oder Vorkenntnisse.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon-badge"><svg class="icon"><use href="#i-tap"/></svg></div>
+        <div>
+          <h3>Intuitive Bedienung</h3>
+          <p>Haptische Bedienelemente direkt an der Deckeneinheit – ganz ohne Smartphone.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon-badge"><svg class="icon"><use href="#i-network"/></svg></div>
+        <div>
+          <h3>Vernetzt</h3>
+          <p>Sensoren und Aktoren kommunizieren miteinander und schaffen mehr Komfort und Sicherheit.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
+        <div>
+          <h3>Vielseitig einsetzbar</h3>
+          <p>Ideal für den privaten Haushalt sowie für Einrichtungen wie betreutes Wohnen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="funktion">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Funktionsweise</div>
+      <h2>So funktioniert es</h2>
+    </div>
+    <div class="hub-wrap">
+      <svg class="hub-svg" viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg">
+        <line class="hub-line" x1="260" y1="200" x2="260" y2="90"  style="animation-delay:.05s"/>
+        <line class="hub-line" x1="260" y1="200" x2="410" y2="90"  style="animation-delay:.15s"/>
+        <line class="hub-line" x1="260" y1="200" x2="440" y2="240" style="animation-delay:.25s"/>
+        <line class="hub-line" x1="260" y1="200" x2="360" y2="330" style="animation-delay:.35s"/>
+        <line class="hub-line" x1="260" y1="200" x2="150" y2="330" style="animation-delay:.45s"/>
+        <line class="hub-line" x1="260" y1="200" x2="70"  y2="240" style="animation-delay:.55s"/>
+        <line class="hub-line" x1="260" y1="200" x2="100" y2="90"  style="animation-delay:.65s"/>
+
+        <circle class="hub-core-ring" cx="260" cy="200" r="58"/>
+        <circle class="hub-core-inner" cx="260" cy="200" r="40"/>
+        <text class="hub-center-label" x="260" y="197" text-anchor="middle">Zentrale</text>
+        <text class="hub-center-label" x="260" y="211" text-anchor="middle">Deckeneinheit</text>
+
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="260" cy="70" r="30"/>
+          <svg x="245" y="55" width="30" height="30"><use href="#i-bulb"/></svg>
+          <text class="hub-label" x="260" y="118" text-anchor="middle">Licht</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="410" cy="70" r="30"/>
+          <svg x="395" y="55" width="30" height="30"><use href="#i-motion"/></svg>
+          <text class="hub-label" x="410" y="118" text-anchor="middle">Bewegung</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="460" cy="240" r="30"/>
+          <svg x="445" y="225" width="30" height="30"><use href="#i-door"/></svg>
+          <text class="hub-label" x="460" y="288" text-anchor="middle">Türen</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="380" cy="345" r="30"/>
+          <svg x="365" y="330" width="30" height="30"><use href="#i-phone-off"/></svg>
+          <text class="hub-label" x="380" y="393" text-anchor="middle">Kein Smartphone nötig</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="140" cy="345" r="30"/>
+          <svg x="125" y="330" width="30" height="30"><use href="#i-thermo"/></svg>
+          <text class="hub-label" x="140" y="393" text-anchor="middle">Heizung</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="50" cy="240" r="30"/>
+          <svg x="35" y="225" width="30" height="30"><use href="#i-window"/></svg>
+          <text class="hub-label" x="50" y="288" text-anchor="middle">Fenster</text>
+        </g>
+        <g class="hub-node">
+          <circle class="hub-node-circle" cx="100" cy="70" r="30"/>
+          <svg x="85" y="55" width="30" height="30"><use href="#i-network"/></svg>
+          <text class="hub-label" x="100" y="118" text-anchor="middle">Vernetzung</text>
+        </g>
+      </svg>
+    </div>
+    <p class="hub-caption">Die Deckeneinheit ist das Herzstück des Systems – sie verbindet alle Komponenten und steuert dein Zuhause.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="solution-wrap">
+      <div>
+        <div class="section-head" style="margin-bottom:20px;">
+          <div class="eyebrow">Umsetzung</div>
+          <h2>Unsere Lösung</h2>
+        </div>
+        <p>Die Deckeneinheit bildet das zentrale Element, mit dem alle anderen Komponenten vernetzt werden. Fertige Bauteile wie Sensoren, Funk-/Bluetooth-Lichtschalter und Thermostate werden einfach eingebunden und über die haptischen Bedienelemente gesteuert.</p>
+      </div>
+      <div class="chip-row">
+        <div class="chip"><svg class="icon"><use href="#i-chip"/></svg><div class="chip-label">Intelligente Steuerung</div></div>
+        <div class="chip"><svg class="icon"><use href="#i-wifi"/></svg><div class="chip-label">Drahtlose Kommunikation</div></div>
+        <div class="chip"><svg class="icon"><use href="#i-tap"/></svg><div class="chip-label">Haptische Bedienung</div></div>
+        <div class="chip"><svg class="icon"><use href="#i-leaf"/></svg><div class="chip-label">Energieeffizient & nachhaltig</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ziele">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Projektziele</div>
+      <h2>Ziele des Projekts</h2>
+    </div>
+    <ul class="goal-list">
+      <li><svg class="icon"><use href="#i-check"/></svg><p>Entwicklung eines kostengünstigen und einfach installierbaren Smarthome-Systems.</p></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><p>Ermöglichung von mehr Komfort, Sicherheit und Energieeffizienz im Alltag.</p></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><p>Schaffung einer Lösung, die für möglichst viele Menschen zugänglich und verständlich ist.</p></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><p>Umsetzung mit modernen Technologien und nachhaltigen Komponenten.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="team" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Wer wir sind</div>
+      <h2>Das Team</h2>
+      <p>Drei Schüler der 4CM, betreut von Richard Drechsler und Martin Sommer.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">JS</div>
+        <h3>Jonathan Schmid</h3>
+        <div class="role">Projektleiter</div>
+        <p class="focus">Projektplanung, Programmierung von App und Vernetzung.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">RP</div>
+        <h3>René Davorin Palos</h3>
+        <div class="role">Stellvertretender Projektleiter</div>
+        <p class="focus">Programmierung des User Interface, Sponsoring und Social Media.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">NJ</div>
+        <h3>Nikola Jankovic</h3>
+        <div class="role">Projektmitarbeiter</div>
+        <p class="focus">Elektronik, PCB-Design und Gehäusekonstruktion (CAD).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-band" id="kontakt">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="icon-badge-sm"><svg class="icon"><use href="#i-users"/></svg></div>
+        <h3>Das Team</h3>
+        <p>René Davorin Palos und Team</p>
+        <p>HTL Rennweg, 4CM</p>
+      </div>
+      <div class="footer-col">
+        <div class="icon-badge-sm"><svg class="icon"><use href="#i-cap"/></svg></div>
+        <h3>HTL Rennweg</h3>
+        <p>Rennweg 89b, 1030 Wien</p>
+        <a href="https://www.htl.rennweg.at" target="_blank" rel="noopener">www.htl.rennweg.at</a>
+      </div>
+      <div class="footer-col">
+        <div class="icon-badge-sm"><svg class="icon"><use href="#i-handshake"/></svg></div>
+        <h3>Interesse an einer Kooperation?</h3>
+        <p>Wir freuen uns über jede Unterstützung – sei es durch Komponenten, Know-how oder finanzielle Hilfe.</p>
+        <a href="mailto:2245@htl.rennweg.at">2245@htl.rennweg.at</a>
+      </div>
+    </div>
+    <div class="feature-strip">
+      <div><svg class="icon"><use href="#i-clock"/></svg><span>Schnell installiert</span></div>
+      <div><svg class="icon"><use href="#i-thumb"/></svg><span>Einfach bedienbar</span></div>
+      <div><svg class="icon"><use href="#i-home"/></svg><span>Für jeden geeignet</span></div>
+      <div><svg class="icon"><use href="#i-shield"/></svg><span>Mehr Komfort & Sicherheit</span></div>
+    </div>
+    <div class="copyright">instant-smarthome.at — Diplomarbeit HTL Rennweg · 2027</div>
+  </div>
+</footer>
+
+</body>
+</html>

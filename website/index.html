@@ -6,6 +6,7 @@
 <title>Instant Smarthome — Einfach. Smart. Für alle.</title>
 <link rel="canonical" href="https://instant-smarthome.at/">
 <meta name="description" content="Instant Smarthome ist ein Plug-and-Play-Smarthome-System – einfach installiert, intuitiv bedient, für alle geeignet. Diplomarbeitsprojekt der HTL Rennweg.">
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -76,8 +77,9 @@
   /* ---------- Nav ---------- */
   header{ padding: 22px 0; border-bottom: 1px solid var(--line); }
   header .wrap{ display:flex; align-items:center; justify-content: space-between; }
-  .wordmark{ font-size: 19px; line-height:1; }
+  .wordmark{ font-size: 19px; line-height:1; display:flex; align-items:center; gap:10px; }
   .wordmark .accent{ color: var(--teal); }
+  .wordmark img{ width: 34px; height: 34px; display:block; }
   nav{ display:flex; }
   nav a{ color: var(--ink-soft); text-decoration:none; font-size: 14.5px; font-weight:500; margin-left: 30px; }
   nav a:hover{ color: var(--navy); }
@@ -232,7 +234,7 @@
 
 <header>
   <div class="wrap">
-    <div class="wordmark">INSTANT<span class="accent">SMARTHOME</span></div>
+    <div class="wordmark"><img src="logo.png" alt="Instant Smarthome Logo">INSTANT<span class="accent">SMARTHOME</span></div>
     <nav>
       <a href="#was-ist">Was ist das?</a>
       <a href="#funktion">Funktion</a>
@@ -431,7 +433,7 @@
     <div class="section-head">
       <div class="eyebrow">Wer wir sind</div>
       <h2>Das Team</h2>
-      <p>Drei Schüler der 4CM, betreut von Richard Drechsler und Martin Sommer.</p>
+      <p>Drei Schüler der 5CM, betreut von Richard Drechsler und Martin Sommer.</p>
     </div>
     <div class="team-grid">
       <div class="team-card">
@@ -463,7 +465,7 @@
         <div class="icon-badge-sm"><svg class="icon"><use href="#i-users"/></svg></div>
         <h3>Das Team</h3>
         <p>René Davorin Palos und Team</p>
-        <p>HTL Rennweg, 4CM</p>
+        <p>HTL Rennweg, 5CM</p>
       </div>
       <div class="footer-col">
         <div class="icon-badge-sm"><svg class="icon"><use href="#i-cap"/></svg></div>
@@ -484,7 +486,7 @@
       <div><svg class="icon"><use href="#i-home"/></svg><span>Für jeden geeignet</span></div>
       <div><svg class="icon"><use href="#i-shield"/></svg><span>Mehr Komfort & Sicherheit</span></div>
     </div>
-    <div class="copyright">instant-smarthome.at — Diplomarbeit HTL Rennweg · 2027</div>
+    <div class="copyright"><img src="logo.png" alt="" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;opacity:0.85;">instant-smarthome.at — Diplomarbeit HTL Rennweg · 2027</div>
   </div>
 </footer>
 

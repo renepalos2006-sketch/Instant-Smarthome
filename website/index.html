@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instant Smarthome — Einfach. Smart. Für alle.</title>
+<title>Instant Smarthome — Home Automation for Everyone.</title>
 <link rel="canonical" href="https://instant-smarthome.at/">
 <meta name="description" content="Instant Smarthome ist ein Plug-and-Play-Smarthome-System – einfach installiert, intuitiv bedient, für alle geeignet. Diplomarbeitsprojekt der HTL Rennweg.">
 <link rel="icon" type="image/png" href="logo.png?v=2">
@@ -77,7 +77,7 @@
   /* ---------- Nav ---------- */
   header{ padding: 22px 0; border-bottom: 1px solid var(--line); }
   header .wrap{ display:flex; align-items:center; justify-content: space-between; }
-  .wordmark{ font-size: 19px; line-height:1; display:flex; align-items:center; gap:10px; }
+  .wordmark{ font-size: 19px; line-height:1; display:flex; align-items:center; gap:10px; color: var(--navy); text-decoration:none; }
   .wordmark .accent{ color: var(--teal); }
   .wordmark img{ width: 34px; height: 34px; display:block; }
   nav{ display:flex; }
@@ -234,7 +234,7 @@
 
 <header>
   <div class="wrap">
-    <div class="wordmark"><img src="logo.png" alt="Instant Smarthome Logo">INSTANT<span class="accent">SMARTHOME</span></div>
+    <a class="wordmark" href="https://instant-smarthome.at/" aria-label="Instant Smarthome Startseite"><img src="logo.png" alt="Instant Smarthome Logo">INSTANT<span class="accent">SMARTHOME</span></a>
     <nav>
       <a href="#was-ist">Was ist das?</a>
       <a href="#funktion">Funktion</a>
@@ -310,7 +310,7 @@
         <div class="icon-badge"><svg class="icon"><use href="#i-tap"/></svg></div>
         <div>
           <h3>Intuitive Bedienung</h3>
-          <p>Haptische Bedienelemente direkt an der Deckeneinheit – ganz ohne Smartphone.</p>
+          <p>Haptische Bedienelemente direkt an der Bedieneinheit – ein Smartphone ist nur optional.</p>
         </div>
       </div>
       <div class="feature">
@@ -324,7 +324,7 @@
         <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
         <div>
           <h3>Vielseitig einsetzbar</h3>
-          <p>Ideal für den privaten Haushalt sowie für Einrichtungen wie betreutes Wohnen.</p>
+          <p>Sowohl für Menschen ohne technische Vorkenntnisse als auch für Techniker, die eine simple Lösung wollen, attraktiv.</p>
         </div>
       </div>
     </div>
@@ -349,8 +349,8 @@
 
         <circle class="hub-core-ring" cx="260" cy="200" r="58"/>
         <circle class="hub-core-inner" cx="260" cy="200" r="40"/>
-        <text class="hub-center-label" x="260" y="197" text-anchor="middle">Zentrale</text>
-        <text class="hub-center-label" x="260" y="211" text-anchor="middle">Deckeneinheit</text>
+        <text class="hub-center-label" x="260" y="197" text-anchor="middle">Zentraler</text>
+        <text class="hub-center-label" x="260" y="211" text-anchor="middle">Hub</text>
 
         <g class="hub-node">
           <circle class="hub-node-circle" cx="260" cy="70" r="30"/>
@@ -360,7 +360,7 @@
         <g class="hub-node">
           <circle class="hub-node-circle" cx="410" cy="70" r="30"/>
           <svg x="395" y="55" width="30" height="30"><use href="#i-motion"/></svg>
-          <text class="hub-label" x="410" y="118" text-anchor="middle">Bewegung</text>
+          <text class="hub-label" x="410" y="118" text-anchor="middle">Bewegungserkennung</text>
         </g>
         <g class="hub-node">
           <circle class="hub-node-circle" cx="460" cy="240" r="30"/>
@@ -370,7 +370,7 @@
         <g class="hub-node">
           <circle class="hub-node-circle" cx="380" cy="345" r="30"/>
           <svg x="365" y="330" width="30" height="30"><use href="#i-phone-off"/></svg>
-          <text class="hub-label" x="380" y="393" text-anchor="middle">Kein Smartphone nötig</text>
+          <text class="hub-label" x="380" y="393" text-anchor="middle">Kein Smartphone erforderlich</text>
         </g>
         <g class="hub-node">
           <circle class="hub-node-circle" cx="140" cy="345" r="30"/>
@@ -385,11 +385,11 @@
         <g class="hub-node">
           <circle class="hub-node-circle" cx="100" cy="70" r="30"/>
           <svg x="85" y="55" width="30" height="30"><use href="#i-network"/></svg>
-          <text class="hub-label" x="100" y="118" text-anchor="middle">Vernetzung</text>
+          <text class="hub-label" x="100" y="118" text-anchor="middle">Bedieneinheit</text>
         </g>
       </svg>
     </div>
-    <p class="hub-caption">Die Deckeneinheit ist das Herzstück des Systems – sie verbindet alle Komponenten und steuert dein Zuhause.</p>
+    <p class="hub-caption">Die Lampe ist das Herzstück des Systems – sie verbindet alle Komponenten und steuert dein Zuhause.</p>
   </div>
 </section>
 
@@ -401,7 +401,7 @@
           <div class="eyebrow">Umsetzung</div>
           <h2>Unsere Lösung</h2>
         </div>
-        <p>Die Deckeneinheit bildet das zentrale Element, mit dem alle anderen Komponenten vernetzt werden. Fertige Bauteile wie Sensoren, Funk-/Bluetooth-Lichtschalter und Thermostate werden einfach eingebunden und über die haptischen Bedienelemente gesteuert.</p>
+        <p>Die Lampe bildet das zentrale Element, mit dem alle anderen Komponenten vernetzt werden. Fertige Bauteile wie Sensoren, Tür-/Fensterkontakte und Thermostate werden einfach eingebunden und über die haptischen Bedienelemente gesteuert.</p>
       </div>
       <div class="chip-row">
         <div class="chip"><svg class="icon"><use href="#i-chip"/></svg><div class="chip-label">Intelligente Steuerung</div></div>
@@ -421,7 +421,7 @@
     </div>
     <ul class="goal-list">
       <li><svg class="icon"><use href="#i-check"/></svg><p>Entwicklung eines kostengünstigen und einfach installierbaren Smarthome-Systems.</p></li>
-      <li><svg class="icon"><use href="#i-check"/></svg><p>Ermöglichung von mehr Komfort, Sicherheit und Energieeffizienz im Alltag.</p></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><p>Ermöglichung von mehr Komfort und Sicherheit im Alltag.</p></li>
       <li><svg class="icon"><use href="#i-check"/></svg><p>Schaffung einer Lösung, die für möglichst viele Menschen zugänglich und verständlich ist.</p></li>
       <li><svg class="icon"><use href="#i-check"/></svg><p>Umsetzung mit modernen Technologien und nachhaltigen Komponenten.</p></li>
     </ul>
@@ -440,13 +440,13 @@
         <div class="avatar">JS</div>
         <h3>Jonathan Schmid</h3>
         <div class="role">Projektleiter</div>
-        <p class="focus">Projektplanung, Programmierung von App und Vernetzung.</p>
+        <p class="focus">Projektplanung, Programmierung von Backend und Vernetzung.</p>
       </div>
       <div class="team-card">
         <div class="avatar">RP</div>
         <h3>René Davorin Palos</h3>
         <div class="role">Stellvertretender Projektleiter</div>
-        <p class="focus">Programmierung des User Interface, Sponsoring und Social Media.</p>
+        <p class="focus">Programmierung von UI und App, Sponsoring und Social Media.</p>
       </div>
       <div class="team-card">
         <div class="avatar">NJ</div>

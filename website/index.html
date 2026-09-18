@@ -186,6 +186,49 @@
   .feature-strip span{ font-family:'Montserrat',sans-serif; font-weight:700; font-size: 12.5px; letter-spacing: 0.02em; text-transform: uppercase; color: #E4ECEE; }
 
   .copyright{ text-align:center; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; color: #7E93 9B; color:#8CA0A6; }
+  .copyright a{
+    color: #DDEAEF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.2px;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  .copyright a:hover{
+    color: #fff;
+    opacity: 1;
+  }
+
+  .impressum{
+    background: var(--navy);
+    color: #D6E0E3;
+    padding: 28px 0 36px;
+  }
+  .impressum .wrap{ max-width: 1180px; }
+  .impressum h2{
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(20px, 2vw, 33px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    color: #fff;
+  }
+  .impressum h3{
+    margin: 18px 0 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 1.3vw, 22px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .impressum p, .impressum a{
+    margin: 0 0 8px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #D6E0E3;
+    text-decoration: none;
+  }
+  .impressum .lead-line{ margin-bottom: 8px; }
+  .impressum strong{ font-weight: 700; }
 
   @media (max-width: 780px){
     .hero .wrap{ grid-template-columns: 1fr; }
@@ -464,7 +507,7 @@
       <div class="footer-col">
         <div class="icon-badge-sm"><svg class="icon"><use href="#i-users"/></svg></div>
         <h3>Das Team</h3>
-        <p>René Davorin Palos und Team</p>
+        <p>Jonathan Schmid, René Davorin Palos und Nikola Jankovic</p>
         <p>HTL Rennweg, 5CM</p>
       </div>
       <div class="footer-col">
@@ -486,7 +529,7 @@
       <div><svg class="icon"><use href="#i-home"/></svg><span>Für jeden geeignet</span></div>
       <div><svg class="icon"><use href="#i-shield"/></svg><span>Mehr Komfort & Sicherheit</span></div>
     </div>
-    <div class="copyright"><img src="logo.png" alt="" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;opacity:0.85;">instant-smarthome.at — Diplomarbeit HTL Rennweg · 2027</div>
+    <div class="copyright"><img src="logo.png" alt="" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;opacity:0.85;"><a href="/impressum/" style="color:#8CA0A6;text-decoration:none;">instant-smarthome.at/impressum</a></div>
   </div>
 </footer>
 

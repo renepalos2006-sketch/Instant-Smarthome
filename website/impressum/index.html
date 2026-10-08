@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impressum — Instant Smarthome</title>
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="../logo.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,110 +13,126 @@
   :root{
     --navy: #142B3F;
     --teal: #1B6F5E;
-    --bg-alt: #F2F6F6;
     --line: #E1E7E6;
     --ink: #142B3F;
     --ink-soft: #55656C;
   }
   *{ box-sizing: border-box; }
-  body{
-    margin:0;
-    font-family: 'Inter', sans-serif;
-    color: var(--ink);
-    background: #fff;
-    line-height: 1.6;
-  }
+  body{ margin:0; font-family:'Inter',sans-serif; color:var(--ink); background:#fff; line-height:1.6; }
   a{ color: var(--teal); }
   .wrap{ max-width: 980px; margin: 0 auto; padding: 0 28px; }
-  header{
-    background: var(--navy);
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap: 12px;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    font-size: 20px;
-  }
-  .brand img{ width: 34px; height: 34px; }
-  .brand .accent{ color: #7FD6BE; }
+  header{ background: var(--navy); padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none;
+    font-family:'Montserrat',sans-serif; font-weight:800; letter-spacing:-0.02em; font-size:20px; }
+  .brand img{ width:34px; height:34px; }
+  .brand .accent{ color:#7FD6BE; margin-left:0.3em; }
+  .lang-switch{ display:inline-flex; border:1px solid rgba(255,255,255,0.3); border-radius:6px; overflow:hidden; }
+  .lang-switch button{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.04em;
+    padding:6px 12px; border:0; background:transparent; color:#fff; cursor:pointer; }
+  .lang-switch button[aria-pressed="true"]{ background:#fff; color:var(--navy); }
+  .lang-switch button:focus-visible{ outline:2px solid #7FD6BE; outline-offset:-2px; }
   main{ padding: 52px 0 72px; }
-  h1{
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(30px, 3vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-    margin: 0 0 26px;
-  }
-  h2{
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(20px, 1.8vw, 32px);
-    line-height: 1.3;
-    margin: 26px 0 8px;
-  }
-  p{
-    margin: 0 0 12px;
-    font-size: 17px;
-    color: var(--ink);
-  }
-  .meta{
-    padding: 0 0 18px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 18px;
-  }
-  .meta p{ color: var(--ink-soft); }
-  @media (max-width: 600px){
-    .brand{ font-size: 17px; }
-    p{ font-size: 15px; }
-  }
+  h1{ font-family:'Montserrat',sans-serif; font-size:clamp(30px,3vw,48px); line-height:1.1; letter-spacing:-0.04em;
+    margin:0 0 26px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+  h2{ font-family:'Montserrat',sans-serif; font-size:clamp(18px,1.6vw,24px); line-height:1.3; margin:26px 0 8px; }
+  p{ margin:0 0 12px; font-size:17px; }
+  .back{ display:inline-block; margin-top:28px; font-weight:600; }
+  @media (max-width:600px){ .brand{ font-size:17px; } p{ font-size:15px; } }
 </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <a class="brand" href="../index.html" aria-label="Zur Startseite">
+      <a class="brand" href="../" aria-label="Zur Startseite">
         <img src="../logo.png" alt="Instant Smarthome Logo">
         INSTANT<span class="accent">SMARTHOME</span>
       </a>
+      <div class="lang-switch" role="group" aria-label="Sprache / Language">
+        <button type="button" data-lang="de" aria-pressed="true">DE</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="wrap">
-      <div class="meta">
-        <h1>Impressum</h1>
-      </div>
+      <h1 data-i18n="title">Impressum</h1>
 
-      <h2>Medieninhaber &amp; Herausgeber:</h2>
-      <p>Team Instant Smarthome: Jonathan Schmid &amp; René Davorin Palos &amp; Nikola Jankovic</p>
+      <h2 data-i18n="publisherH">Medieninhaber &amp; Herausgeber</h2>
+      <p data-i18n="publisher">Team Instant Smarthome: Jonathan Schmid, René Davorin Palos und Nikola Jankovic</p>
 
-      <h2>Anschrift:</h2>
-      <p>HTL Rennweg, Rennweg 89b, 1030 Wien, Österreich p. A. Team Instant Smarthome</p>
+      <h2 data-i18n="addressH">Anschrift</h2>
+      <p data-i18n="address">HTL Rennweg, Rennweg 89b, 1030 Wien, Österreich, p. A. Team Instant Smarthome</p>
 
-      <h2>E-Mail:</h2>
+      <h2 data-i18n="emailH">E-Mail</h2>
       <p><a href="mailto:team@instant-smarthome.at">team@instant-smarthome.at</a></p>
 
-      <h2>Telefon:</h2>
+      <h2 data-i18n="phoneH">Telefon</h2>
       <p>+43 670 4035522</p>
 
-      <h2>Projekt-Kontext:</h2>
-      <p>Diese Website ist Teil der Diplomarbeit „Instant Smarthome“ an der HTL Rennweg.</p>
+      <h2 data-i18n="contextH">Projekt-Kontext</h2>
+      <p data-i18n="context">Diese Website ist Teil der Diplomarbeit „Instant Smarthome“ an der HTL Rennweg.</p>
 
-      <h2>Grundlegende Richtung (Blattlinie):</h2>
-      <p>Präsentation des Diplomarbeitsprojekts „Instant Smarthome“ und Information der Öffentlichkeit über den Projektfortschritt.</p>
+      <h2 data-i18n="lineH">Grundlegende Richtung (Blattlinie)</h2>
+      <p data-i18n="line">Präsentation des Diplomarbeitsprojekts „Instant Smarthome“ und Information der Öffentlichkeit über den Projektfortschritt.</p>
 
-      <h2>Haftungshinweis:</h2>
-      <p>Trots sorgfältiger Kontrolle wird keine Haftung für die Inhalte externer Links übernommen. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+      <h2 data-i18n="liabilityH">Haftungshinweis</h2>
+      <p data-i18n="liability">Trotz sorgfältiger Kontrolle wird keine Haftung für die Inhalte externer Links übernommen. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
-      <h2>Hinweis zu Sponsoren:</h2>
-      <p>Die dargestellten Firmenlogos dienen der Kennzeichnung unserer Projektpartner, die uns im Rahmen der Ausbildung unterstützen.</p>
+      <h2 data-i18n="sponsorsH">Hinweis zu Sponsoren</h2>
+      <p data-i18n="sponsors">Die dargestellten Firmenlogos dienen der Kennzeichnung unserer Projektpartner, die uns im Rahmen der Ausbildung unterstützen.</p>
+
+      <a class="back" href="../" data-i18n="back">← Zurück zur Startseite</a>
     </div>
   </main>
+
+<script>
+// Englische Texte: Schlüssel = data-i18n im HTML. Deutsch steht direkt im HTML.
+const TRANSLATIONS = { en: {
+  pageTitle: "Legal notice — Instant Smarthome",
+  title: "Legal notice",
+  publisherH: "Media owner & publisher",
+  publisher: "Team Instant Smarthome: Jonathan Schmid, René Davorin Palos and Nikola Jankovic",
+  addressH: "Address",
+  address: "HTL Rennweg, Rennweg 89b, 1030 Vienna, Austria, c/o Team Instant Smarthome",
+  emailH: "E-mail",
+  phoneH: "Phone",
+  contextH: "Project context",
+  context: "This website is part of the diploma thesis “Instant Smarthome” at HTL Rennweg.",
+  lineH: "Editorial policy",
+  line: "Presentation of the diploma thesis project “Instant Smarthome” and information for the public about the project’s progress.",
+  liabilityH: "Disclaimer",
+  liability: "Despite careful checking, we accept no liability for the content of external links. The operators of the linked pages are solely responsible for their content.",
+  sponsorsH: "Note on sponsors",
+  sponsors: "The company logos shown identify our project partners, who support us as part of our education.",
+  back: "← Back to home page"
+}};
+
+(function () {
+  const STORAGE_KEY = "instant-smarthome-lang"; // gleicher Schlüssel wie auf der Startseite
+  const els = document.querySelectorAll("[data-i18n]");
+  const buttons = document.querySelectorAll(".lang-switch [data-lang]");
+  const german = { pageTitle: document.title };
+  els.forEach(function (el) { german[el.dataset.i18n] = el.innerHTML; });
+
+  function setLanguage(lang) {
+    const t = lang === "en" ? TRANSLATIONS.en : german;
+    els.forEach(function (el) { if (t[el.dataset.i18n] !== undefined) el.innerHTML = t[el.dataset.i18n]; });
+    document.title = t.pageTitle;
+    document.documentElement.lang = lang;
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+  function initialLanguage() {
+    const u = new URLSearchParams(location.search).get("lang");
+    if (u === "de" || u === "en") return u;
+    try { const s = localStorage.getItem(STORAGE_KEY); if (s === "de" || s === "en") return s; } catch (e) {}
+    return (navigator.language || "de").toLowerCase().startsWith("de") ? "de" : "en";
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { setLanguage(b.dataset.lang); }); });
+  setLanguage(initialLanguage());
+})();
+</script>
 </body>
 </html>

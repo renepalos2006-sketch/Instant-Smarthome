@@ -68,7 +68,18 @@ static void flush_cb(lv_display_t * disp, const lv_area_t * area, uint8_t * px)
 {
     uint32_t w = lv_area_get_width(area);
     uint32_t h = lv_area_get_height(area);
-    lcd.pushImage(area->x1, area->y1, w, h, (lgfx::rgb565_t *)px);
+    lv_area_t rotated_area = *area;
+    if(lv_display_get_rotation(disp) == LV_DISPLAY_ROTATION_180) {
+        uint16_t * pixels = (uint16_t *)px;
+        uint32_t pixel_count = w * h;
+        for(uint32_t i = 0; i < pixel_count / 2; i++) {
+            uint16_t pixel = pixels[i];
+            pixels[i] = pixels[pixel_count - 1 - i];
+            pixels[pixel_count - 1 - i] = pixel;
+        }
+        lv_display_rotate_area(disp, &rotated_area);
+    }
+    lcd.pushImage(rotated_area.x1, rotated_area.y1, w, h, (lgfx::rgb565_t *)px);
     lv_display_flush_ready(disp);
 }
 
@@ -145,6 +156,7 @@ void setup()
     lv_tick_set_cb(tick_cb);
 
     lv_display_t * disp = lv_display_create(800, 480);
+    lv_display_set_rotation(disp, LV_DISPLAY_ROTATION_180);
     const size_t buf_px = 800 * 48;  // 48 Zeilen pro Teil-Neuzeichnung
     void * buf1 = heap_caps_malloc(buf_px * 2, MALLOC_CAP_INTERNAL | MALLOC_CAP_DMA);
     void * buf2 = heap_caps_malloc(buf_px * 2, MALLOC_CAP_SPIRAM);
